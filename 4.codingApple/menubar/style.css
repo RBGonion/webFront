@@ -1,0 +1,24 @@
+#logo {
+  background-color: rgb(194, 225, 225);
+  width: 400px;
+  height: 300px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+}
+
+#idnav {
+  display: flex;
+  flex-flow: column;
+  align-items: flex-end;
+  padding: 10px;
+  background-color: rgb(186, 144, 144);
+  z-index: 1;
+}
+
+nav span {
+  padding: 5px;
+}
