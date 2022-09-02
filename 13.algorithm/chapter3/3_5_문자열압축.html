@@ -1,0 +1,47 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(str) {
+        // indexArray = [];
+        // answer = [];
+        // count = 0;
+        // for (let i = 0; i < str.length; i++) {
+        //   count++;
+        //   if (str[i] !== str[i - 1]) {
+        //     count = 1;
+        //   }
+        //   indexArray.push(count);
+        // }
+        // for (let i = 0; i < indexArray.length; i++) {
+        //   if (indexArray[i] === 1) {
+        //     answer.push(str[i]);
+        //     if (indexArray[i] === 1) {
+        //     }
+        //   }
+        // }
+        // console.log(indexArray);
+        // return answer;
+        let count = 1;
+        let answer = [];
+        for (let i = 0; i < str.length; i++) {
+          if (str[i] === str[i + 1]) {
+            count++;
+          } else {
+            answer.push(str[i]);
+            if (count !== 1) {
+              answer.push(count);
+            }
+            count = 1;
+          }
+        }
+        return answer.join("");
+      }
+      let str = "KKHSSSSSSSE";
+      console.log(solution(str));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(m, arr) {
+        // 가격과 배송비의 합 크기 순으로 입력값을 정렬시킴
+        // 모든 경우의 수가 무엇인지 파악할 수 있어야 한다
+        let answer = 0;
+        arr.sort((a, b) => a[0] + a[1] - (b[0] + b[1]));
+        for (let i = 0; i < arr.length; i++) {
+          let money = m - (arr[i][0] / 2 + arr[i][1]); //i번째 요소에 쿠폰이 적용된 경우
+          let count = 1; // 이런식으로 값을 찾을 수 있는게 결국 경우의 수 중 최대값을 찾는 것이므로 오름차순 정렬 후 값이 최대인 경우에 바로 탐색을 멈춰주면 되는 것
+          for (let j = 0; j < arr.length; j++) {
+            // i번째 요소에 쿠폰이 적용된 경우의 모든 경우 탐색
+            if (j !== i && arr[j][0] + arr[j][1] > money) break; // 오름차순으로 정렬해 놨기 때문에 이런 식으로 break가 가능함
+            if (j !== i && arr[j][0] + arr[j][1] <= money) {
+              money -= arr[j][0] + arr[j][1];
+              count++;
+            }
+          }
+          answer = Math.max(answer, count);
+        }
+
+        return answer;
+      }
+
+      let arr = [
+        [6, 6],
+        [2, 2],
+        [4, 3],
+        [4, 5],
+        [10, 3],
+      ];
+      console.log(solution(28, arr));
+    </script>
+  </body>
+</html>

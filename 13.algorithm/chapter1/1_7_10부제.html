@@ -1,0 +1,22 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(a, arr) {
+        let counter = 0;
+        for (let x of arr) {
+          if (String(x)[String(x).length - 1] === String(a)) {
+            counter++;
+          }
+        }
+        console.log(Math.floor(((2394 % 1000) % 100) / 10));
+        return counter;
+      }
+      arr = [25, 23, 11, 47, 53, 17, 33];
+      console.log(solution(3, arr));
+    </script>
+  </body>
+</html>

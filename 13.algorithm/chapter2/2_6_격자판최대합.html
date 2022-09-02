@@ -1,0 +1,49 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(arr) {
+        let answer = [];
+        let widthArray = [];
+        let higthArray = [0, 0, 0, 0, 0];
+        let diagonal1 = 0;
+        let diagonal2 = 0;
+        let promp = 0;
+        let j = arr.length - 1;
+        for (let i = 0; i < arr.length; i++) {
+          // let elementArray = arr[i];
+          for (let j = 0; j < arr[i].length; j++) {
+            promp += arr[i][j];
+            higthArray[j] += arr[i][j];
+            if (i === j) {
+              diagonal1 += arr[i][j];
+            }
+          }
+
+          diagonal2 += arr[i][j];
+          j--;
+
+          widthArray.push(promp);
+          promp = 0;
+        }
+        // answer.push(diagonal1, diagonal2);
+        // answer.concat(widthArray); 이거 왜 안됨?? 개열받네 진짜
+        answer = Math.max(diagonal1, diagonal2, ...widthArray, ...higthArray);
+
+        return answer;
+      }
+
+      let arr = [
+        [10, 13, 10, 12, 15],
+        [12, 39, 30, 23, 11],
+        [11, 25, 50, 53, 15],
+        [19, 27, 29, 37, 27],
+        [19, 13, 30, 13, 19],
+      ];
+      console.log(solution(arr));
+    </script>
+  </body>
+</html>

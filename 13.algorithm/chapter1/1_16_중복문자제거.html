@@ -1,0 +1,22 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(str) {
+        let answer = "";
+        for (let item of str) {
+          if (answer.includes(item)) {
+            continue;
+          } else {
+            answer += item;
+          }
+        }
+        return answer;
+      }
+      console.log(solution("ksekksetwtwtwt"));
+    </script>
+  </body>
+</html>

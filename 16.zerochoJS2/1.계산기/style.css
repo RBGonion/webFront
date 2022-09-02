@@ -1,0 +1,95 @@
+* {
+  box-sizing: border-box;
+  /* border를 기준으로 사이즈를 책정함 */
+
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: black;
+}
+
+button {
+  border: none;
+}
+
+#calculator {
+  margin: 20px;
+  width: 400px;
+  height: 330px;
+  background-color: black;
+  border-top: 1px gray solid;
+  border-bottom: 1px gray solid;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#calculator button {
+  margin: 2px;
+  width: 90px;
+  height: 35px;
+  border-radius: 5px;
+  color: white;
+  background-color: rgb(61, 62, 67);
+}
+
+#btnLine1 button {
+  background-color: rgb(96, 99, 104);
+}
+
+#btnLine1 > button:last-child,
+#btnLine2 > button:last-child,
+#btnLine3 > button:last-child,
+#btnLine4 > button:last-child,
+#btnLine5 > button:last-child {
+  background-color: rgb(96, 99, 104);
+}
+
+#btnLine1 > button:hover,
+#btnLine2 > button:hover,
+#btnLine3 > button:hover,
+#btnLine4 > button:hover,
+#btnLine5 > button:hover {
+  background-color: rgba(165, 173, 186, 0.502);
+}
+
+#btnLine5 > button:nth-child(3) {
+  background-color: rgb(107, 158, 241);
+  color: black;
+}
+
+#inputBtns {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+#display {
+  width: 95%;
+  height: 80px;
+  border: 1px rgb(158, 158, 228) solid;
+  border-radius: 10px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+}
+#display:hover {
+  background-color: rgb(54, 52, 52);
+}
+
+#display #Ans {
+  font-size: 12px;
+  margin: 2px 20px;
+}
+#display #result {
+  font-size: 30px;
+  margin: 2px 20px;
+  letter-spacing: 0.1em;
+}

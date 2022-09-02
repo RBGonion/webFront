@@ -1,0 +1,22 @@
+input {
+  background-color: orange;
+  border-style: none;
+  color: white;
+  padding: 8px;
+}
+
+img {
+  width: 200px;
+  height: 200px;
+}
+
+.inputBox {
+  display: flex;
+  justify-content: center;
+}
+
+.imgBox {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>welcome to kokoatalk</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body class="chatting">
+    <div id="status-bar">
+      <div class="status-bar__column">
+        <span>No Service</span>
+      </div>
+      <!-- to do : wifi icon-->
+      <div class="status-bar__column">
+        <span>20:30</span>
+      </div>
+      <div class="status-bar__column">
+        <i class="fa-solid fa-wifi"></i>
+        <span>110%</span>
+        <i class="fa-solid fa-battery-full"></i>
+        <!-- icon *2-->
+      </div>
+    </div>
+    <header class="alt-header">
+      <div class="alt-header-column">
+        <a href="chat.html"><i class="fa-solid fa-angle-left"></i></a>
+      </div>
+      <div class="alt-header-column">chatting</div>
+      <ul class="alt-header-column-icons">
+        <li><i class="fa-solid fa-magnifying-glass"></i></li>
+        <li><i class="fa-solid fa-bars"></i></li>
+      </ul>
+    </header>
+    <main class="main-chat">
+      <div class="timestamp"><span>월요일 3월 14일</span></div>
+      </div>
+      <div class="message-row">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAP0AAADHCAMAAADlCqUFAAAAb1BMVEX///8AAADn5+crKyvd3d1WVlalpaXIyMi6urqXl5f29vbPz8/r6+uSkpIQEBBISEiAgIA/Pz8aGho2NjZra2va2tpNTU1bW1vv7+95eXkgICDCwsKOjo74+PjU1NQwMDCqqqpjY2MMDAyGhoazs7PnsJoYAAACXUlEQVR4nO3b7XKiMBhA4YBUKYquX+u3dLfe/zXu2CZ0u2LqZpo3k3Cef47DzHsGEQyoFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABDKZPZ042cZeiopedZhup8VoQcT0Vl/telD/936LKu3oYfzzlKf/Ug+31af7arQ43mm6/eH8t1x+Wnvn0LP55euH5jXVXE+NB/5ryFn8+/f+qvtpa2fvgSa6/sMTcvo9r2u+r+/DTa5zIz+/H+9KhbteU9kRI8c6tXZHPzzscSIHrnUq4vZ+3Xk3/tO9dud3qiJ/JLXqV6NzJk/8l98bvXK7PzBxPuEPrX1h9v3LPVDc+THXW9jqVdPaXz0LWz1v3T9UnooMbb6l6nOlx5KjK2+Guj6ZH/o2uqVqY/9cu+uh+qPwkOJsdbvdf1CeCgx1vraXCgIDyXGWj/udf261/WKeuplZ5JDPfXd71Lf2/pJr+v7fa1X9rp+1+t6s6K/Eh5KzEOrG8ku6j5Un+yCvq0+N2s70kOJsdWbpZ1kF7YeupczlB7qW43r5zd1x71oS30+0/Vx38J2vIf7/FtvFvejO2711UpvdYz74Q23+naryO/kONXnZtevIj/bu9RXr2aji8SIHrnUt9us4v7Oc6pvN2miv8Yv9PPXZccR3Fl/aj/2iT+l3VF/qjdt/DL2z72drm/M66Kez7MP65Cz+Wf9b0bk17hfs9UvzqGn881SH/3T2V+7W9/sEj/mr+7VH0dJn+q0zvpdOUr2Eb1PTuvixjr5fyECAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgLQ/ha4RrejRhVEAAAAASUVORK5CYII=" alt="" />
+        <div class="message-row-content">
+          <span class="message-author">jeonghyen</span>
+          <div class="message-info">
+            <span class="message-bubble">hi!</span>
+            <span class="message-time">21:27</span>
+          </div>
+        </div>
+      </div>
+      <div class="message-row revers">
+        <div class="message-row-content">
+          <div class="message-info">
+            <span class="message-bubble">nice to meet you!</span>
+            <span class="message-time">21:27</span>
+          </div>
+        </div>
+      </div>
+    </main>
+    <form class="reply">
+      <div class="reply__column">
+        <i class="far fa-plus-square fa-lg"></i>
+      </div>
+      <div class="reply__column">
+        <input type="text" placeholder="Write a message..." />
+        <i class="far fa-smile-wink fa-lg"></i>
+        <button>
+          <i class="fas fa-arrow-up"></i>
+        </button>
+      </div>
+    </form>
+    <script
+      src="https://kit.fontawesome.com/39b6b56791.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

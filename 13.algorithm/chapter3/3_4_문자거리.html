@@ -1,0 +1,62 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      // function solution(s, t) {
+      //   let answer = [];
+      //   let promp = [];
+      //   for (let i = 0; i < str.length; i++) {
+      //     for (let j = 0; j < str.length; j++) {
+      //       if (str[j] === t) {
+      //         promp.push(Math.abs(j - i));
+      //       }
+      //     }
+      //     answer.push(Math.min(...promp));
+      //     promp = [];
+      //   }
+      //   return answer;
+      // }
+
+      function solution(str, t) {
+        let count = 0;
+        let promp1 = [];
+        let promp2 = [];
+        let answer = [];
+
+        for (let i = 0; i < str.length; i++) {
+          if (str[i] !== t) {
+            count++;
+            promp1.push(count);
+          } else {
+            count = 0;
+            promp1.push(count);
+          }
+        }
+        for (let i = str.length - 1; i >= 0; i--) {
+          if (str[i] !== t) {
+            count++;
+            promp2.push(count);
+          } else {
+            count = 0;
+            promp2.push(count);
+          }
+        }
+        promp2 = promp2.reverse();
+        for (let i = 0; i < promp1.length; i++) {
+          if (promp1[i] <= promp2[i]) {
+            answer.push(promp1[i]);
+          } else {
+            answer.push(promp2[i]);
+          }
+        }
+        return answer;
+      }
+
+      let str = "teachermode";
+      console.log(solution(str, "e"));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(s) {
+        let splitStr = s.split("");
+        let filterStr = "";
+        for (let item of splitStr) {
+          if (
+            ("a".charCodeAt() <= item.charCodeAt() &&
+              item.charCodeAt() <= "z".charCodeAt()) ||
+            ("A".charCodeAt() <= item.charCodeAt() &&
+              item.charCodeAt() <= "Z".charCodeAt())
+          ) {
+            filterStr += item;
+          }
+        }
+        let changeStr = filterStr.toUpperCase();
+        if (changeStr.length % 2 === 0) {
+          for (let i = 0; i < changeStr.length; i++) {
+            if (changeStr[i] === changeStr[changeStr.length - 1 - i]) {
+              continue;
+            } else {
+              return "NO1";
+            }
+          }
+        } else {
+          for (let i = 0; i < Math.floor(changeStr.length / 2); i++) {
+            if (changeStr[i] === changeStr[changeStr.length - 1 - i]) {
+              continue;
+            } else {
+              return "NO2";
+            }
+          }
+        }
+        return "YES";
+      }
+
+      let str = "ggfound7, time: study; Yduts; emit, 7Dnuofgg";
+      console.log(solution(str));
+    </script>
+  </body>
+</html>

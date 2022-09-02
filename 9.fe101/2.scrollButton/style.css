@@ -1,0 +1,21 @@
+body {
+  height: 100vh;
+  position: relative;
+}
+
+form {
+  position: fixed;
+  top: 100px;
+  right: 100px;
+}
+
+#divs div {
+  background-color: blue;
+  border: 1px solid;
+  width: 100px;
+  height: 100px;
+}
+
+#divs div:nth-child(4) {
+  background-color: aqua;
+}

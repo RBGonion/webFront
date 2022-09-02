@@ -1,0 +1,83 @@
+body{
+    margin: 0;
+}
+
+div{
+    border: 1px solid;
+}
+
+li {
+    list-style-type: none;
+}
+
+a{
+    color: rgb(89, 199, 79);
+}
+
+
+
+.header {
+    background-color: green;
+    display: flex;
+    justify-content: space-between;
+}
+
+.headIcons {
+    display: flex;
+}
+
+
+
+
+
+.displaywindow{
+    background-color: red;
+    height: 200px;
+}
+
+
+
+
+
+.imformationwindow {
+    background-color: yellow;
+}
+
+.imformationwindow .hashtag{
+    display: flex;
+}
+.title {
+    display: flex;
+    justify-content: space-between;
+}
+.buttonbar {
+    display: flex;
+    justify-content: center;
+}
+.buttonbar li{
+    margin: 10px 10px;
+}
+.chaner-information {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.subbutton {
+}
+
+.ddd {
+    display: flex;
+    align-items: center;
+    
+}
+
+.playlist {
+    display: flex;
+    flex-flow: column;
+    background-color: purple;
+    margin: 0;
+}
+
+.playlist li {
+    margin: 5px 5px;
+}

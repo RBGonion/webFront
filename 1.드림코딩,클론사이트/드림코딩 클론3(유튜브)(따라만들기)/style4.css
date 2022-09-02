@@ -1,0 +1,165 @@
+:root {
+    --white-color:#fff;
+    --black-color: #140a00;
+    --blue-color: #045fd4;
+    --red-color: #ff0000;
+    --gray-dark-color: #909090;
+    --gray-light-color: #e0e0e0;
+
+    --padding: 12px;
+    --avatar-size: 36px;
+
+    --font-large: 18px;
+    --font-medium: 14px;
+    --font-small: 12px;
+    --font-micro: 10px;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    list-style-type: none;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+    background: none;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: var(--padding);
+    background-color: var(--black-color);
+    color: var(--white-color);
+}
+header .logo{
+    font-size: var(--font-large);
+}
+header .logo i {
+    color: var(--red-color);
+}
+
+header .icons a{
+    color: inherit;
+}
+
+header .icons .fa-circle {
+    margin-right: var(--padding);
+}
+
+
+.playwindow {
+    position: sticky;
+    top:0;
+    text-align: center;
+    background-color: #140a00;
+}
+
+.playwindow video{
+    width: 100%;
+    height: 100%;
+    max-width: 600px;
+}
+
+
+
+.infomation {
+    padding: var(--padding);
+}
+
+.hashtag {
+    display: flex;
+    font-size: var(--font-small);
+    color: var(--blue-color);
+}
+
+.hashtag li{
+    margin: 3px;
+}
+
+.infomation .titleandbutton {
+    display: flex;
+    justify-content: space-between;
+}
+
+.infomation .iconbar {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px;
+}
+
+.infomation .iconbar li button{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    
+}
+
+
+
+.channer {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid rgb(207, 200, 200);
+    border-bottom: 1px solid rgb(207, 202, 202);
+    margin: 10px;
+}
+
+.channer .channerInfo img{
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+}
+
+.channer .channerInfo {
+    display: flex;
+    align-items: center;
+}
+
+.channer .channerInfo .info {
+    display: flex;
+    flex-flow: column;
+}
+
+
+.playlist {
+    display: flex;
+    flex-flow: column;
+}
+
+
+
+.playlist .item img{
+    width: 150px;
+    height: 80px;
+    margin: 10px;
+}
+
+.playlist .item{
+    display: flex;
+    margin: 10px;
+    align-items: center;
+}
+
+.playlist .item ul{
+    display: flex;
+    flex-flow: column;
+}
+
+@media screen and (min-width: 800px){
+    .package{
+        display: flex;
+        flex-flow: row;
+    }
+
+    .package .infomation{
+        flex: 1 1 50%
+    }
+    .package .playlist {
+        flex: 1 1 50%
+    }
+}

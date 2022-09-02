@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>welcome to kokoatalk</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div id="status-bar">
+      <div class="status-bar__column">
+        <span>No Service</span>
+      </div>
+      <!-- to do : wifi icon-->
+      <div class="status-bar__column">
+        <span>20:30</span>
+      </div>
+      <div class="status-bar__column">
+        <i class="fa-solid fa-wifi"></i>
+        <span>110%</span>
+        <i class="fa-solid fa-battery-full"></i>
+        <!-- icon *2-->
+      </div>
+    </div>
+
+    <header id="welcome-header">
+      <h1 class="welcome-header__title">welcome to kokoa clone</h1>
+      <p class="welcome-header__text">
+        if you have a kakao account, log in with your email or phone number
+      </p>
+    </header>
+
+    <form action="friends.html" method="get" id="login-form">
+      <input
+        name="username"
+        required
+        type="text"
+        requier
+        placeholder="email or phone number"
+      />
+      <input name="password" required type="password" placeholder="password" />
+      <input type="submit" value="log in" />
+      <a href="#">find kokoa account or password</a>
+    </form>
+
+    <script
+      src="https://kit.fontawesome.com/39b6b56791.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
