@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(str) {
+        let newWord = "";
+        for (let item of str) {
+          if (
+            "a".charCodeAt() <= item.charCodeAt() &&
+            item.charCodeAt() <= "z".charCodeAt()
+          ) {
+            newWord += String.fromCharCode(item.charCodeAt() - 32);
+          } else {
+            newWord += String.fromCharCode(item.charCodeAt() + 32);
+          }
+        }
+        return newWord;
+      }
+      console.log(solution("StuDY"));
+    </script>
+  </body>
+</html>

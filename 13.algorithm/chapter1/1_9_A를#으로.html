@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(str) {
+        let splitstr = str.split("");
+        for (let i = 0; i < splitstr.length; i++) {
+          if (splitstr[i] === "A") {
+            splitstr[i] = "#";
+          }
+        }
+        return splitstr.join("");
+      }
+      let str = "BANANA";
+      console.log(solution(str));
+      //
+      //
+      //
+      function solution2(str2) {
+        let answer = str2;
+        answer = answer.replace(/A/g, "#");
+        return answer;
+      }
+      let str2 = "BANANA";
+      console.log(solution2(str2));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(n, arr) {
+        arr = arr.map((i) => String(i));
+        prompArray = [];
+        answer = [];
+        for (let i = 0; i < arr.length; i++) {
+          promp = 0;
+          for (let j = 0; j < arr[i].length; j++) {
+            promp += parseInt(arr[i][j]);
+          }
+          prompArray.push(promp);
+        }
+        max = 0;
+        for (let i = 0; i < prompArray.length; i++) {
+          if (max < prompArray[i]) {
+            max = prompArray[i];
+          }
+        }
+        for (let i = 0; i < prompArray.length; i++) {
+          if (prompArray[i] === max) {
+            answer.push(arr[i]);
+          }
+        }
+        return Math.max(...answer);
+      }
+      let arr = [128, 460, 603, 40, 521, 137, 123, 821];
+      console.log(solution(7, arr));
+    </script>
+  </body>
+</html>

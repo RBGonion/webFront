@@ -1,0 +1,32 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(str) {
+        let answer = "";
+        for (let x of str) {
+          if (
+            "a".charCodeAt() <= x.charCodeAt() &&
+            x.charCodeAt() <= "z".charCodeAt()
+          ) {
+            x = String.fromCharCode(x.charCodeAt() - 32);
+            answer += x;
+          } else {
+            answer += x;
+          }
+        }
+        return answer;
+      }
+
+      let str = "ItisTimeToStudy";
+      console.log(solution(str));
+    </script>
+  </body>
+</html>
+
+<!-- 문자열은 배열과 유사하지만 
+  배열처럼 요소별로 접근하여 수정하는 것은 불가하다
+문자열 자체가 하나의 값이기 떄문 -->

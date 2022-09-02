@@ -1,0 +1,22 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(str) {
+        let maxlength = "";
+        for (let item of str) {
+          if (item.length > maxlength.length) {
+            maxlength = item;
+          }
+        }
+        return maxlength;
+      }
+
+      let str = ["teacher", "time", "student", "beautiful", "good"];
+      console.log(solution(str));
+    </script>
+  </body>
+</html>
