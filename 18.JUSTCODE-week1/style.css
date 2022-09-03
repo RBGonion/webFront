@@ -1,0 +1,17 @@
+table {
+  border-collapse: collapse;
+}
+
+.borderTable th,
+.borderTable td {
+  border: 1px solid black;
+}
+
+.borderTable th {
+  text-align: left;
+  font-weight: 400;
+}
+
+.colorSell {
+  background-color: gray;
+}
