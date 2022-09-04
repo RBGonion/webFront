@@ -1,17 +1,47 @@
-table {
-  border-collapse: collapse;
+#div1 {
+  width: 500px;
+  height: 200px;
+  background-color: bisque;
+  margin: 10px;
+}
+#div2 {
+  width: 500px;
+  height: 200px;
+  background-color: brown;
+  margin: 10px;
+  position: relative;
+  right: 3px;
+}
+#div3 {
+  width: 500px;
+  height: 200px;
+  background-color: blueviolet;
+  margin: 10px;
+}
+#div4 {
+  width: 500px;
+  height: 200px;
+  background-color: beige;
+  margin: 10px;
 }
 
-.borderTable th,
-.borderTable td {
-  border: 1px solid black;
+#blue,
+#red {
+  background-color: aqua;
+  width: 100px;
+  height: 100px;
+  margin: 10px;
 }
 
-.borderTable th {
-  text-align: left;
-  font-weight: 400;
+#red {
+  background-color: red;
+  position: absolute;
+  right: 30px;
+  top: 30px;
 }
 
-.colorSell {
-  background-color: gray;
+#blue {
+  background-color: blue;
+  position: absolute;
+  top: 10px;
 }
