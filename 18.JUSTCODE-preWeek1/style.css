@@ -1,29 +1,15 @@
-#main {
+.contain {
+  width: 100px;
+  height: 100px;
+  background-color: aqua;
   display: flex;
-  flex-flow: column;
-  align-items: center;
-  width: 100%;
+  overflow: auto;
 }
 
-input {
-  border-radius: 6px;
-  border: 1px gray solid;
-  opacity: 0.5;
-  margin: 15px;
-}
-
-a {
-  display: block;
-}
-
-#main div:nth-child(3) {
-  display: flex;
-  flex-direction: row;
-}
-
-#main div:nth-child(3) div {
-  background-color: gray;
-  margin: 5px;
-  padding: 5px;
-  border-radius: 5px;
+.contain div {
+  padding: 30px;
+  border-radius: 50px;
+  width: 30px;
+  height: 30px;
+  background-color: blue;
 }
