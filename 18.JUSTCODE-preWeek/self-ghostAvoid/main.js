@@ -3,8 +3,6 @@ const feild = document.querySelector("#feild");
 const FEILD_WIDTH = parseInt(getComputedStyle(feild).width);
 const FEILD_HEIGHT = parseInt(getComputedStyle(feild).height);
 
-console.log(FEILD_WIDTH, FEILD_HEIGHT);
-
 function makeHero() {
   const hero = document.createElement("div");
   hero.id = "hero"; // hero.setAttribute("id", "hero");
@@ -116,18 +114,43 @@ function ghostMove(ghost, ghostInterval) {
   let ghostLeft = parseInt(ghost.style.left);
   let ghostTop = parseInt(ghost.style.top);
 
-  //캐릭터 추적 조건문1
-  if (heroLeft > ghostLeft) {
-    ghost.style.left = `${ghostLeft + 5}px`;
-  } else {
-    ghost.style.left = `${ghostLeft - 5}px`;
-  }
+  // 속도가 다른 개체를 만드려고 했으나 모든 개체가 10%로 30px을 움직이게 구현되었다
+  // if (Math.random() > 0.1) {
+  //   if (heroLeft > ghostLeft) {
+  //     ghost.style.left = `${ghostLeft + 5}px`;
+  //   } else {
+  //     ghost.style.left = `${ghostLeft - 5}px`;
+  //   }
+  //   //캐릭터 추적 조건문2
+  //   if (heroTop > ghostTop) {
+  //     ghost.style.top = `${ghostTop + 5}px`;
+  //   } else {
+  //     ghost.style.top = `${ghostTop - 5}px`;
+  //   }
+  // } else {
+  //   if (heroLeft > ghostLeft) {
+  //     ghost.style.left = `${ghostLeft + 30}px`;
+  //   } else {
+  //     ghost.style.left = `${ghostLeft - 30}px`;
+  //   }
+  //   if (heroTop > ghostTop) {
+  //     ghost.style.top = `${ghostTop + 30}px`;
+  //   } else {
+  //     ghost.style.top = `${ghostTop - 30}px`;
+  //   }
+  // }
 
+  //유령 추격 기능
+  if (heroLeft > ghostLeft) {
+    ghost.style.left = `${ghostLeft + 10}px`;
+  } else {
+    ghost.style.left = `${ghostLeft - 10}px`;
+  }
   //캐릭터 추적 조건문2
   if (heroTop > ghostTop) {
-    ghost.style.top = `${ghostTop + 5}px`;
+    ghost.style.top = `${ghostTop + 10}px`;
   } else {
-    ghost.style.top = `${ghostTop - 5}px`;
+    ghost.style.top = `${ghostTop - 10}px`;
   }
 
   //캐릭터 충돌 확인

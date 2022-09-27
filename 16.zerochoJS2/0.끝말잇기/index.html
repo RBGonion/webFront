@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="order"><span>1번째 참가자:</span></div>
+    <div id="word"><span>제시어:</span></div>
+    <form id="input" action="">
+      <input type="text" />
+      <input type="submit" />
+    </form>
+    <script>
+      const form = document.querySelector("#input");
+      const input = document.querySelector("#input input");
+      const word = document.querySelector("#word");
+      const order = document.querySelector("#order span");
+      let currentWord = "";
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        if (currentWord === "") {
+          currentWord = input.value;
+          word.textContent = `제시어: ${currentWord}`;
+          input.value = "";
+        } else {
+          if (currentWord[currentWord.length - 1] === input.value[0]) {
+            currentWord = input.value;
+            word.textContent = `제시어: ${currentWord}`;
+            input.value = "";
+          }
+        }
+        console.log(parseInt(order.innerText));
+        if (parseInt(order.innerText) > 2) {
+          order.innerText = `1번째 참가자`;
+        } else {
+          order.innerText = `${parseInt(order.innerText) + 1}번째 참가자`;
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,7 +1,6 @@
 * {
   box-sizing: border-box;
   /* border를 기준으로 사이즈를 책정함 */
-
   margin: 0;
   padding: 0;
 }
