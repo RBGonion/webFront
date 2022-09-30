@@ -1,5 +1,3 @@
-//22.09.29 계산기 구현, 소괄호 기능 미구현(소괄호 안의 연산식을 다시 btnCalculation함수로 넣어야 할 것 같은데 그 부분이 어렵다)
-
 const display = document.querySelector("#result");
 const ans = document.querySelector("#Ans");
 
@@ -7,6 +5,7 @@ let currentValue = "";
 let currentOperator = "";
 let waitArr = [];
 let beforeCalculateValue = null;
+let bracketState = true;
 
 function calculate(num1, num2) {
   switch (currentOperator) {
@@ -23,77 +22,84 @@ function calculate(num1, num2) {
   }
 }
 
-function btnCalculation(event) {
-  if (currentValue === "") return;
-  waitArr.push(currentValue);
-  currentValue = "";
-  // while (waitArr.includes("(")) {
-  //   waitArr.splice(
-  //     waitArr.indexOf("("),
-  //     waitArr.indexOf(")") - waitArr.indexOf("(") + 1
-  //   );
-  // }
-  while (
-    waitArr.includes("*") ||
-    waitArr.includes("/") ||
-    waitArr.includes("%")
-  ) {
-    for (let i = 0; i < waitArr.length; i++) {
-      if (waitArr[i] === "*") {
+function calculation(arr) {
+  while (arr.includes("(")) {
+    let arrInBracket = arr.slice(arr.indexOf("(") + 1, arr.indexOf(")") + 1);
+
+    arr.splice(
+      arr.indexOf("("),
+      arr.indexOf(")") - arr.indexOf("(") + 1,
+      calculation(arrInBracket)
+    );
+  }
+
+  while (arr.includes("*") || arr.includes("/") || arr.includes("%")) {
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i] === "*") {
         currentOperator = "*";
-        waitArr.splice(
-          waitArr.indexOf("*") - 1,
+        arr.splice(
+          arr.indexOf("*") - 1,
           3,
-          calculate(Number(waitArr[i - 1]), Number(waitArr[i + 1]))
+          calculate(Number(arr[i - 1]), Number(arr[i + 1]))
         );
         break;
-      } else if (waitArr[i] === "/") {
+      } else if (arr[i] === "/") {
         currentOperator = "/";
-        waitArr.splice(
-          waitArr.indexOf("/") - 1,
+        arr.splice(
+          arr.indexOf("/") - 1,
           3,
-          calculate(Number(waitArr[i - 1]), Number(waitArr[i + 1]))
+          calculate(Number(arr[i - 1]), Number(arr[i + 1]))
         );
         break;
-      } else if (waitArr[i] === "%") {
+      } else if (arr[i] === "%") {
         currentOperator = "%";
-        waitArr.splice(
-          waitArr.indexOf("%") - 1,
+        arr.splice(
+          arr.indexOf("%") - 1,
           3,
-          calculate(Number(waitArr[i - 1]), Number(waitArr[i + 1]))
+          calculate(Number(arr[i - 1]), Number(arr[i + 1]))
         );
         break;
       }
     }
   }
-  while (waitArr.includes("+") || waitArr.includes("-")) {
-    for (let i = 0; i < waitArr.length; i++) {
-      if (waitArr[i] === "+") {
+  while (arr.includes("+") || arr.includes("-")) {
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i] === "+") {
         currentOperator = "+";
-        waitArr.splice(
-          waitArr.indexOf("+") - 1,
+        arr.splice(
+          arr.indexOf("+") - 1,
           3,
-          calculate(Number(waitArr[i - 1]), Number(waitArr[i + 1]))
+          calculate(Number(arr[i - 1]), Number(arr[i + 1]))
         );
         break;
-      } else if (waitArr[i] === "-") {
+      } else if (arr[i] === "-") {
         currentOperator = "-";
-        waitArr.splice(
-          waitArr.indexOf("-") - 1,
+        arr.splice(
+          arr.indexOf("-") - 1,
           3,
-          calculate(Number(waitArr[i - 1]), Number(waitArr[i + 1]))
+          calculate(Number(arr[i - 1]), Number(arr[i + 1]))
         );
         break;
       }
     }
   }
+  return arr[0];
+}
+
+function btnCalculation(event) {
+  if (currentValue === "" && bracketState) return;
+  bracketState = true;
+  if (currentValue) waitArr.push(currentValue);
+  currentValue = "";
+
   ans.textContent = `${display.textContent} = `;
-  display.textContent = waitArr[0];
-  beforeCalculateValue = waitArr[0];
+  display.textContent = calculation(waitArr);
+  beforeCalculateValue = calculation(waitArr);
   currentValue = beforeCalculateValue;
   currentOperator = "";
   waitArr = [];
 }
+
 function btnNumber(event) {
   if (beforeCalculateValue !== null) {
     display.textContent = "";
@@ -105,20 +111,30 @@ function btnNumber(event) {
   currentValue += event.target.textContent;
   display.textContent += event.target.textContent; // 왜 0은 계속 눌러도 화면에 0이 추가되지 않는 것일까
 }
+
 function btnOperator(event) {
   beforeCalculateValue = null;
   currentOperator = event.target.textContent;
-  waitArr.push(currentValue);
+  if (currentValue) waitArr.push(currentValue);
   waitArr.push(event.target.textContent);
   currentValue = "";
   display.textContent += event.target.textContent;
 }
-// function btnRoundBracket(event) {
-//   if (display.textContent === "0") display.textContent = "";
-//   waitArr.push(event.target.textContent);
-//   display.textContent += event.target.textContent;
-//   console.log(waitArr);
-// }
+
+function btnRoundBracket(event) {
+  if (display.textContent === "0") display.textContent = "";
+  waitArr.push(event.target.textContent);
+  display.textContent += event.target.textContent;
+}
+
+function btnRoundBracketRight(event) {
+  waitArr.push(currentValue);
+  waitArr.push(event.target.textContent);
+  currentValue = "";
+  display.textContent += event.target.textContent;
+  bracketState = false;
+}
+
 function btnCE(event) {
   display.textContent = "0";
   waitArr = [];
@@ -158,12 +174,11 @@ function clickBtn(event) {
   ) {
     btnOperator(event);
     return;
-  } else if (
-    event.target.textContent === "(" ||
-    event.target.textContent === ")"
-  ) {
+  } else if (event.target.textContent === "(") {
     btnRoundBracket(event);
     return;
+  } else if (event.target.textContent === ")") {
+    btnRoundBracketRight(event);
   }
 }
 
