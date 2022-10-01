@@ -6,3 +6,9 @@
 // let a = "bacaAacba";
 // let b = "abc";
 // console.log(solution(a, b));
+
+const obj = {};
+
+for (let item of obj) {
+  console.log("item");
+}
