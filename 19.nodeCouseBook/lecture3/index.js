@@ -5,7 +5,5 @@ const checkNumber = require("./func");
 // console.log(odd, even);
 
 // global.console.log(globalThis);
-
-for (let i = 9; i < 10; i--) {
-  console.log(i);
-}
+const os = require("os");
+console.log(os.cpus());
