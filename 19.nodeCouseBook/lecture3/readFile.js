@@ -19,22 +19,22 @@ fs.readFile("./readme.txt", (err, data) => {
   });
 });
 
-// fs.readFile("./readme.txt")
-//   .then((data) => {
-//     console.log("1번", data.toString());
-//     return fs.readFile("./readme.txt");
-//   })
-//   .then((data) => {
-//     console.log("2번", data.toString());
-//     return fs.readFile("./readme.txt");
-//   })
-//   .then((data) => {
-//     console.log("3번", data.toString());
-//     return fs.readFile("./readme.txt");
-//   })
-//   .catch((err) => {
-//     console.error(err);
-//   });
+fs.readFile("./readme.txt")
+  .then((data) => {
+    console.log("1번", data.toString());
+    return fs.readFile("./readme.txt");
+  })
+  .then((data) => {
+    console.log("2번", data.toString());
+    return fs.readFile("./readme.txt");
+  })
+  .then((data) => {
+    console.log("3번", data.toString());
+    return fs.readFile("./readme.txt");
+  })
+  .catch((err) => {
+    console.error(err);
+  });
 
 async function main() {
   let data = await fs.readFile("./readme.txt");
@@ -44,4 +44,4 @@ async function main() {
   data = await fs.readFile("./readme.txt");
   console.log("3번", data.toString());
 }
-// main();
+main();
