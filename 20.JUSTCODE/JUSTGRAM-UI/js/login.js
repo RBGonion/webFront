@@ -22,7 +22,8 @@ $loginBtn.addEventListener("click", (event) => {
   if (
     idArr.includes($inputId.value) &&
     passwordArr.includes($inputPassword.value)
-  )
-    location.href = "main.html";
-  else $loginFailArelt.classList.remove("hidden");
+  ) {
+    localStorage.setItem("test", "test");
+    location.href = "main.html?asdfadsf";
+  } else $loginFailArelt.classList.remove("hidden");
 });
