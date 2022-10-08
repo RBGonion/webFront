@@ -169,3 +169,8 @@ section {
   width: 50px;
   height: 40px;
 }
+
+.comment {
+  display: flex;
+  justify-content: space-between;
+}
