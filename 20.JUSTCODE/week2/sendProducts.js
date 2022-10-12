@@ -17,4 +17,4 @@ const sendProducts = (res) => {
   );
 };
 
-module.exports = { sendProducts }; // withoutExpress.js 에서 사용하기 위해 모듈로 내보낸다.
+module.exports = { sendProducts };
