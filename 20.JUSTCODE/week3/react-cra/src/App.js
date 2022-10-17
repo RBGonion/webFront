@@ -1,25 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+function main() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <>
+      {/* 헤더 */}
+      <header className="header-wrapper">
+        {/* 저스트그램 로고 */}
+        <div className="logo-wrapper">
+          <img className="logo-img" src="image/logo.png" alt="" width="25px" />
+          <div className="logo-line"></div>
+          <div className="logo-text">justgram</div>
+        </div>
+        {/* 검색 */}
+        <div className="search-wrapper">
+          <input className="search-box" type="text" placeholder="검색" />
+        </div>
+        {/* 오른쪽 메뉴 목록 */}
+        <div className="menu-wrapper">
+          <img
+            className="menu-icon"
+            src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/explore.png"
+            alt=""
+          />
+          <img
+            className="menu-icon"
+            src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/heart.png"
+            alt=""
+          />
+          <img
+            className="menu-icon"
+            src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/profile.png"
+            alt=""
+          />
+        </div>
       </header>
-    </div>
+    </>
   );
 }
-
-export default App;
+export default main;
