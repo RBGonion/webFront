@@ -1,8 +1,13 @@
-import "./Login.css";
+import "./Login.scss";
 import { Fragment } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function App() {
+  const navigate = useNavigate();
+  const moveMain = () => {
+    navigate("/main");
+  };
+
   return (
     <Fragment>
       <section id="loginPage">
@@ -21,7 +26,7 @@ function App() {
               id="inputPassword"
               placeholder="  비밀번호"
             />
-            <button disabled id="loginBtn">
+            <button id="loginBtn" onclick={moveMain}>
               로그인
             </button>
             <span id="loginFailArelt" className="hidden">
