@@ -1,13 +1,37 @@
 import "./Login.scss";
+import React, { useState, useRef } from "react";
 import { Fragment } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 function App() {
+  // const [id, setId] = useState("");
+  // const [pw, setPw] = useState("");
+  const [vital, setVital] = useState(false);
   const navigate = useNavigate();
-  const moveMain = () => {
-    navigate("/main");
-  };
+  const idValue = useRef();
+  const pwValue = useRef();
 
+  const moveMain = (event) => {
+    event.preventDefault();
+    if (
+      idValue.current.value.includes("@") &&
+      pwValue.current.value.length >= 5
+    )
+      navigate("/main");
+  };
+  const handleIdInput = function (event) {
+    // setId(event.target.value);
+    console.log(idValue.current.value);
+    idValue.current.value.includes("@") && pwValue.current.value.length >= 5
+      ? setVital(true)
+      : setVital(false);
+  };
+  const handlePwInput = function (event) {
+    // setPw(event.target.value);
+    idValue.current.value.includes("@") && pwValue.current.value.length >= 5
+      ? setVital(true)
+      : setVital(false);
+  };
   return (
     <Fragment>
       <section id="loginPage">
@@ -19,14 +43,26 @@ function App() {
             <input
               type="text"
               id="inputId"
+              onChange={handleIdInput}
               placeholder="  전화번호, 사용자 이름 또는 이메일"
+              ref={idValue}
             />
             <input
               type="password"
               id="inputPassword"
+              onChange={handlePwInput}
               placeholder="  비밀번호"
+              ref={pwValue}
             />
-            <button id="loginBtn" onclick={moveMain}>
+            <button
+              id="loginBtn"
+              style={{
+                backgroundColor: vital
+                  ? "rgb(30, 30, 227)"
+                  : "rgba(0, 145, 255, 0.354)",
+              }}
+              onClick={moveMain}
+            >
               로그인
             </button>
             <span id="loginFailArelt" className="hidden">
