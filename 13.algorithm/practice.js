@@ -1,40 +1,36 @@
-const reverse = (x) => {
-  x = String(x); // 숫자인 인자를 문자열로 변환
-  answer = ""; // 빈 문자열
-  for (let i = x.length - 1; i >= 0; i--) {
-    console.log(answer);
-    answer += x[i]; // 숫자를 뒤집어진 문자열로 만듬
-  }
-  if (answer.includes("-")) return -parseInt(answer); // - 뒤집은 문자열
-  else return parseInt(answer); // 뒤집은 문자열
-};
+const getPrefix = (strs) => {
+  let arr = [new Array(strs[0].length)]; // 빈 배열을 선언
+  // [] 일반적인 빈 배열
+  // [빈자리1, 빈자리2, 빈자리3, 빈자리4, 빈자리5 ]
+  // [s, t, null, null, null]
+  // s t a i r
+  let answer = ""; // 정답 변수 선언
 
-console.log(reverse(-123403300));
+  for (let i = 0; i < strs.length; i++) {
+    //strs = ["start", "stair", "step"];
 
-// 숫자를 뒤집는다
-// 맨앞자리에 0이 오면 없엔다
-// 마이너스가 있다면 유지한다
-
-const getLengthOfStr = (str) => {
-  let temp = "";
-  let max = 0;
-  3;
-
-  for (let i = 0; i < str.length; i++) {
-    if (!temp.includes(str[i])) {
-      // 알바벳이 중복이 아닐 때 실행
-      temp += str[i];
-    } else {
-      // 알파벳이 중복될 경우 실행됨
-      if (temp.length > max) max = temp.length; // temp.length가 더 클 때만 max를 갱신
-      temp = str[i]; // temp초기화를 겸해서 현재값인 str[i]할당
+    for (let j = 0; j < strs[i].length; j++) {
+      // s t a r t 0~4
+      // s t a i r 0~4
+      // s t e p 0~3
+      if (i === 0) {
+        arr[j] = strs[i][j]; // arr배열에 요소를 셋팅 arr.push(strs[i][j])
+      } else {
+        if (arr[j] !== strs[i][j]) {
+          arr[j] = null;
+        }
+      }
     }
   }
-  return Math.max(max, temp.length);
-  // 위 코드로는 마지막에 temp에서 if문이 실행되지 않기 때문에
-  // 마지막의 temp는 Math.max()를 사용해서 직접 비교해줘야 한다
+
+  let count = 0;
+  while (arr[count] !== null) {
+    answer += arr[count];
+    count++;
+  }
+
+  return answer;
 };
 
-console.log(getLengthOfStr("abcabcabc"));
-console.log(getLengthOfStr("aaaaba"));
-console.log(getLengthOfStr("sttrgaqe"));
+console.log(getPrefix(["start", "stair", "step", "sasfsadfnjkf"]));
+console.log(getPrefix(["start", "wework", "today"]));

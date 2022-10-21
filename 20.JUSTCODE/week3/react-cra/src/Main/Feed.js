@@ -1,14 +1,24 @@
-import { useState } from "react";
+import Comment from "./comment";
+import { useState, useRef } from "react";
 
 function Feed() {
-  const [commentArray, setCommentArray] = useState([
-    {
-      id: 1,
-      content: "할게 너무 많다",
-    },
-  ]);
+  //댓글 개수 관리 state
+  const [commentArray, setCommentArray] = useState([]); // 댓글용 배열 state 선언
 
-  const addComment = () => {};
+  //댓글을 상태관리
+  const [id, setId] = useState(1); // id state 선언
+  const value = useRef(); // 댓글 input의 value를 저장
+
+  //댓글을 추가하는 함수
+  const addComment = (event) => {
+    setId(id + 1); // 세터로 id값 갱신, id++와 비슷하게 동작함
+    const newComment = {
+      id: id,
+      content: value.current.value, // ref로 가져온 입력값
+    };
+
+    setCommentArray([...commentArray, newComment]); // 배열을 풀어서 객체 요소를 추가한 뒤, 다시 배열로 만들어 저장
+  };
 
   return (
     <>
@@ -37,36 +47,12 @@ function Feed() {
             <i className="fa-regular fa-bookmark"></i>
           </div>
         </div>
-        <div className="pidComment">
-          <div className="pidComment_like">
-            <span>좋아요를 누른 사람이 없습니다</span>
-          </div>
-          <div className="pidComment_host">
-            <span>
-              <b>jung_hyen</b> 벌써 할로윈
-            </span>
-            <span>...더 보기</span>
-          </div>
-          <div className="pidComment_visit">
-            <span>
-              <b>yopi27</b> 할로윈의 기원을 아시나요
-            </span>
-            {commentArray.map((comment) => {
-              return <li key={comment.id}>{comment.content}</li>;
-            })}
-          </div>
-          <div className="pidComment_time">
-            <span>42분 전</span>
-          </div>
-          <form className="pidComment_input" action="">
-            <input
-              className="pidComment_input_input"
-              placeholder="   댓글 달기..."
-              type="text"
-            />
-            <button className="pidComment_input_button">게시</button>
-          </form>
-        </div>
+        <Comment
+          commentArray={commentArray}
+          value={value}
+          addComment={addComment}
+          id={id}
+        />
       </section>
     </>
   );
