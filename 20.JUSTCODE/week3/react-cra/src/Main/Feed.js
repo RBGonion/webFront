@@ -1,7 +1,7 @@
 import Comment from "./comment";
 import { useState, useRef } from "react";
 
-function Feed() {
+function Feed({ pidid, likeCount, userName, content, feedImage }) {
   //댓글 개수 관리 state
   const [commentArray, setCommentArray] = useState([]); // 댓글용 배열 state 선언
 
@@ -23,14 +23,19 @@ function Feed() {
   return (
     <>
       <section>
+        <div>{pidid}</div>
+        <div>{likeCount}</div>
+        <div>{userName}</div>
+        <div>{content}</div>
+        <div>{feedImage}</div>
         <div className="pidHeader">
           <div className="pidHeader_leftBox">
             <img
               className="pidHeader_leftBox_img"
-              src="/images/스크린샷 2022-10-04 오후 7.39.13.png"
+              src={"/images/스크린샷 2022-10-04 오후 7.39.13.png"}
               alt=""
             />
-            <span className="pidHeader_leftBox_span">jung_hyen</span>
+            <span className="pidHeader_leftBox_span">{userName}</span>
           </div>
           <div className="pidHeader_rightBox">
             <i className="fa-solid fa-ellipsis"></i>

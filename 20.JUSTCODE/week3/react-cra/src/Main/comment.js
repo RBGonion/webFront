@@ -1,4 +1,12 @@
+import { useEffect } from "react";
+
 function Comment(props) {
+  useEffect(() => {
+    fetch("/data/mockData.json")
+      .then((res) => res.json())
+      .then((res) => console.log(res.data));
+  });
+
   return (
     <div className="pidComment">
       <div className="pidComment_like">
