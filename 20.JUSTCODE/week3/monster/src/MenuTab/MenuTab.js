@@ -1,5 +1,5 @@
-import React from 'react';
-import './MenuTab.scss';
+import React from "react";
+import "./MenuTab.scss";
 
 const MenuTab = () => {
   return (
