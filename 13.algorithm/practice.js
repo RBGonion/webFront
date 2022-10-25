@@ -10,6 +10,7 @@ function romanToNum(s) {
     D: 500,
     M: 1000,
   };
+
   for (let i = s.length; i > 0; i--) {
     //접근 순서
     //prev < curr: curr-prev값을 더하고, 다음 순회를 생략하기
@@ -26,7 +27,7 @@ function romanToNum(s) {
       continue;
     }
     if (romaNum[prev] >= romaNum[curr]) {
-      // 현제 순서의 값이 다음 순서의 값과 같거나 작다면 정상적인 순서이므로 현재값을 answer에 더해준다
+      // 현재 순서의 값이 다음 순서의 값과 같거나 작다면 정상적인 순서이므로 현재값을 answer에 더해준다
       answer += romaNum[curr];
     } else if (romaNum[prev] < romaNum[curr]) {
       // 현재 순서의 값이 다음 순서의 값보다 크다면,
