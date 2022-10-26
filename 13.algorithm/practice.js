@@ -1,49 +1,42 @@
-function isValid(s) {
-  let answer1 = true;
-  let answer2 = true;
+function topK(nums, k) {
+  // 여기에 코드를 작성해주세요.
+  let obj = {};
 
-  //객체로 괄호에 숫자값을 부여
-  let obj = {
-    "(": 1,
-    ")": -1,
-    "{": 2,
-    "}": -2,
-    "[": 3,
-    "]": -3,
-  };
-
-  //입력값이 홀수라면 false를 반환
-  if (s.length % 2 !== 0) return false;
-
-  //괄호를 숫자로 변환하여 배열에 담기
-  let arr = [];
-  for (let i = 0; i < s.length; i++) {
-    let temp = s[i];
-    arr.push(obj[temp]);
-  }
-
-  //answer1 검증
-  for (let i = 0; i < s.length; i++) {
-    let curr = arr[i];
-    let post = arr[i + 1];
-
-    if (curr + post === 0) {
-      i++;
+  for (let i = 0; i < nums.length; i++) {
+    let temp = nums[i];
+    if (!obj[temp]) {
+      obj[temp] = 1;
     } else {
-      answer1 = false;
+      obj[temp] = Number(obj[temp]) + 1;
     }
   }
 
-  //answer2 검증
-  for (let i = 0; i < s.length / 2; i++) {
-    if (arr[i] + arr[s.length - 1 - i] !== 0) {
-      answer2 = false;
-    }
-  }
+  const arr = [];
+  Object.values(obj).map((elem) => {
+    if (!arr.includes(elem)) arr.push(elem);
+  });
 
-  //둘 중 하나라도 true라면 true반환
-  return answer1 || answer2;
+  const keys = Object.keys(obj);
+  const values = Object.values(obj);
+  const answer = [];
+
+  arr
+    .sort((a, b) => b - a)
+    .slice(0, k)
+    .map((elem) => {
+      for (let i = 0; i < values.length; i++) {
+        if (elem === values[i]) answer.push(keys[i]);
+      }
+    });
+
+  return answer;
 }
-console.log(isValid("({(([]))})")); // 반으로 잘랐을 때 좌우 대칭인가?
-console.log(isValid("[]{}()()(){}{}")); // 순서대로 쌍이 맞는가?
-module.exports = { isValid };
+
+console.log(topK([1, 5, 2, 2, 2, 2, 3, 4, 4, 5, 6, 4], 3));
+
+// Object.keys(obj)는 동적으로 추가된 프로퍼티를 인식하지 못하는 것 같다
+// 그게 아니라 Object.keys(obj)를 변수로 등록한 뒤에 값을 추가하니까 추가된 값이 반영되지 않았던 것
+// Object.keys(obj).find()를 통해 특정 value에 해당하는 key를 찾을 수 있다
+// Object.keys(obj)
+// Object.values(obj)
+// Object.entries(obj)
