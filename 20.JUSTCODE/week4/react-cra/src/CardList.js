@@ -28,6 +28,9 @@ const CardList = () => {
 
   return (
     <div className="cardList">
+      data = [{객체1} {객체2} {객체3}] elem = {객체1}
+      elem = {객체2}
+      elem = {객체3}
       {data.map((elem, idx) => (
         <Card
           key={idx}

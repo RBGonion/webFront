@@ -16,8 +16,22 @@ function App() {
     if (
       idValue.current.value.includes("@") &&
       pwValue.current.value.length >= 5
-    )
+    ) {
+      fetch("경로", {
+        method: "post",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          id: idValue.current.value,
+          pw: pwValue.current.value,
+        }),
+      })
+        .then((res) => res.json())
+        .then((data) => setItem(data.token));
+
       navigate("/main");
+    }
   };
   const handleIdInput = function (event) {
     // setId(event.target.value);

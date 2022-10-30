@@ -1,7 +1,7 @@
 function topK(nums, k) {
-  // 여기에 코드를 작성해주세요.
   let obj = {};
 
+  //for문과 객체를 사용하여 요소의 종류와 갯수를 담아준다
   for (let i = 0; i < nums.length; i++) {
     let temp = nums[i];
     if (!obj[temp]) {
@@ -11,15 +11,18 @@ function topK(nums, k) {
     }
   }
 
+  // Object.values()과 map메서드를 사용하여 중복되지 않는 요소의 갯수 배열을 구한다
   const arr = [];
   Object.values(obj).map((elem) => {
     if (!arr.includes(elem)) arr.push(elem);
   });
 
+  //중복되지 않는 요소의 갯수 배열을 내림차순으로 정렬한 뒤,
+  //k개만큼 잘라준다
+  //map메서드와 for문을 사용하여 k개로 잘린 배열 요소의 키에 해당하는 값을 찾아서 answer배열에 넣어준다
   const keys = Object.keys(obj);
   const values = Object.values(obj);
   const answer = [];
-
   arr
     .sort((a, b) => b - a)
     .slice(0, k)
@@ -40,3 +43,8 @@ console.log(topK([1, 5, 2, 2, 2, 2, 3, 4, 4, 5, 6, 4], 3));
 // Object.keys(obj)
 // Object.values(obj)
 // Object.entries(obj)
+
+//for문과 객체를 사용하여 요소의 종류와 갯수를 담아준다
+//Object.values(obj)과 map메서드를 사용하여 중복되지 않는 요소의 갯수 배열을 구한다
+//중복되지 않는 요소의 갯수 배열을 내림차순으로 정렬한 뒤, k개만큼 잘라준다
+//map메서드와 for문을 사용하여 k개로 잘린 배열 요소의 키에 해당하는 값을 찾아서 answer배열에 넣어준다
