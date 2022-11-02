@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import Card from './Card';
-import './styles/cardList.scss';
+import React, { useState } from "react";
+import Card from "./Card";
+import "../styles/cardList.scss";
 
 function CardList({ filter }) {
   const [data, setData] = useState([]);
 
-  fetch('/data/mockData.json')
-    .then(res => res.json())
-    .then(data => setData(data.data));
+  fetch("/data/mockData.json")
+    .then((res) => res.json())
+    .then((data) => setData(data.data));
 
   return (
     <div className="cardList">

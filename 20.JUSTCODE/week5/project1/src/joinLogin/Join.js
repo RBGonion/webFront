@@ -1,8 +1,8 @@
 import React, { useState, useRef, useEffect } from "react";
-import "./styles/join.scss";
+import "../styles/join.scss";
 
 function Join() {
-  const [userData, setUserData] = useState({});
+  const [userData, setUserData] = useState();
 
   const userId = useRef();
   const password = useRef();
@@ -29,12 +29,12 @@ function Join() {
     setUserData({
       login_id: userId.current.value,
       password: password.current.value,
-      passwordCheck: passwordCheck.current.value,
-      userName: userName.current.value,
-      EnglishName: EnglishName.current.value,
-      nationality: nationality.current.value,
-      userEmail: userEmail.current.value,
-      imageFile: imageFile.current.value,
+      password_check: passwordCheck.current.value,
+      kor_name: userName.current.value,
+      eng_name: EnglishName.current.value,
+      country: nationality.current.value,
+      email: userEmail.current.value,
+      profile_image: imageFile.current.value,
     });
   };
 
@@ -44,7 +44,7 @@ function Join() {
     //   body: JSON.stringify(userData),
     // });
 
-    console.log(userData);
+    userData && console.log(userData);
   }, [userData]);
 
   return (
