@@ -18,7 +18,7 @@ function Card() {
         <img src="" alt="" />
         <span>댓글수</span>
         <img src="" alt="" />
-        <span>조회수</span>
+        <span>조회수.</span>
       </div>
     </div>
   );
