@@ -13,7 +13,7 @@ function App() {
   const onSubmitHander = (e) => {
     e.preventDefault();
     const text = e.target.text.value;
-    const done = e.target.done.value;
+    const done = e.target.done.checked;
     fetch("http://localhost:4000/api/todo", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
